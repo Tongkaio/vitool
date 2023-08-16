@@ -46,15 +46,14 @@ class MyWindow(QWidget, Ui_Form):
             while 1:
                 ret, frame2 = self.cap.read()
                 cnt += 1
-                if not ret:
-                    print('视频读取完毕')
+                if not ret:  # 视频读取完毕
                     break
 
                 if cnt % frame == 0:
                     count += 1
                     try:
                         frame2 = cv2.resize(frame2, dsize=(int(self.videowidth/2), int(self.videoheight/2)),
-                                            interpolation=cv2.INTER_AREA)
+                                            interpolation=cv2.INTER_AREA)  # 视频缩放
                     except:
                         print('此帧异常，也许为空')
                         continue
