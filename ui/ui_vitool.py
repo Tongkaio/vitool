@@ -16,14 +16,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QSpinBox, QToolButton, QVBoxLayout, QWidget)
+    QLineEdit, QProgressBar, QPushButton, QSizePolicy,
+    QSpacerItem, QSpinBox, QToolButton, QVBoxLayout,
+    QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(372, 266)
+        Form.resize(474, 247)
         self.verticalLayout_3 = QVBoxLayout(Form)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.horizontalLayout_5 = QHBoxLayout()
@@ -39,6 +40,8 @@ class Ui_Form(object):
 
         self.lineEdit_videopath = QLineEdit(Form)
         self.lineEdit_videopath.setObjectName(u"lineEdit_videopath")
+        self.lineEdit_videopath.setEnabled(True)
+        self.lineEdit_videopath.setReadOnly(True)
 
         self.horizontalLayout_3.addWidget(self.lineEdit_videopath)
 
@@ -54,6 +57,7 @@ class Ui_Form(object):
 
         self.lineEdit_outputpath = QLineEdit(Form)
         self.lineEdit_outputpath.setObjectName(u"lineEdit_outputpath")
+        self.lineEdit_outputpath.setReadOnly(True)
 
         self.horizontalLayout_4.addWidget(self.lineEdit_outputpath)
 
@@ -81,10 +85,16 @@ class Ui_Form(object):
 
         self.horizontalLayout_7.addWidget(self.label_2)
 
-        self.spinBox = QSpinBox(Form)
-        self.spinBox.setObjectName(u"spinBox")
+        self.spinBox_frame = QSpinBox(Form)
+        self.spinBox_frame.setObjectName(u"spinBox_frame")
+        self.spinBox_frame.setMinimum(1)
 
-        self.horizontalLayout_7.addWidget(self.spinBox)
+        self.horizontalLayout_7.addWidget(self.spinBox_frame)
+
+        self.label_4 = QLabel(Form)
+        self.label_4.setObjectName(u"label_4")
+
+        self.horizontalLayout_7.addWidget(self.label_4)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_7)
@@ -169,6 +179,18 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
 
+        self.progressBar = QProgressBar(Form)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setValue(0)
+
+        self.verticalLayout_3.addWidget(self.progressBar)
+
+        self.progresstext = QLabel(Form)
+        self.progresstext.setObjectName(u"progresstext")
+        self.progresstext.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.progresstext)
+
 
         self.retranslateUi(Form)
 
@@ -180,12 +202,14 @@ class Ui_Form(object):
         self.button_video.setText(QCoreApplication.translate("Form", u"\u89c6\u9891", None))
         self.button_output.setText(QCoreApplication.translate("Form", u"\u8f93\u51fa", None))
         self.label.setText(QCoreApplication.translate("Form", u"\u56fe\u7247\u540e\u7f00", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"\u95f4\u9694", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"\u6bcf", None))
+        self.label_4.setText(QCoreApplication.translate("Form", u"\u5e27\u62bd\u53d61\u5e27", None))
         self.button_2img.setText(QCoreApplication.translate("Form", u"\u62bd\u5e27", None))
         self.button_img.setText(QCoreApplication.translate("Form", u"\u56fe\u7247", None))
         self.button_output_2.setText(QCoreApplication.translate("Form", u"\u8f93\u51fa", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"\u5e27\u7387", None))
         self.checkBox_deleteimg.setText(QCoreApplication.translate("Form", u"\u5408\u5e76\u540e\u5220\u9664\u56fe\u7247", None))
         self.button_2video.setText(QCoreApplication.translate("Form", u"\u5408\u5e76", None))
+        self.progresstext.setText("")
     # retranslateUi
 
