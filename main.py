@@ -15,11 +15,11 @@ class MyWindow(QWidget, Ui_Form):
         self.button_2img.clicked.connect(self.video2img)  # 点击后将视频抽帧为图片
         self.button_2video.clicked.connect(self.img2video)  # 点击后将图片合并为视频
         self.spinBox_frame.valueChanged.connect(self.setfps)  # 设置帧率
-        self.checkBox_deleteimg.stateChanged.connect(self.setenabled)
+        self.checkBox_deleteimg.stateChanged.connect(self.setenabled)  # 是否允许删除图片
 
     def setenabled(self):
-        if not self.checkBox_deleteimg.isChecked():
-            self.checkBox_deletedir.setChecked(False)  # 取消勾选
+        if not self.checkBox_deleteimg.isChecked():  # 如果不允许删除图片
+            self.checkBox_deletedir.setChecked(False)  # 取消勾选“删除文件夹”
             self.checkBox_deletedir.setEnabled(False)  # 禁止删除文件夹
         else:
             self.checkBox_deletedir.setEnabled(True)  # 允许删除文件夹
