@@ -24,7 +24,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(474, 247)
+        Form.resize(474, 246)
+        Form.setMinimumSize(QSize(474, 246))
+        Form.setMaximumSize(QSize(474, 246))
         self.verticalLayout_3 = QVBoxLayout(Form)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.horizontalLayout_5 = QHBoxLayout()
@@ -66,20 +68,6 @@ class Ui_Form(object):
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.label = QLabel(Form)
-        self.label.setObjectName(u"label")
-
-        self.horizontalLayout_7.addWidget(self.label)
-
-        self.lineEdit_suffix = QLineEdit(Form)
-        self.lineEdit_suffix.setObjectName(u"lineEdit_suffix")
-
-        self.horizontalLayout_7.addWidget(self.lineEdit_suffix)
-
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_7.addItem(self.horizontalSpacer_5)
-
         self.label_2 = QLabel(Form)
         self.label_2.setObjectName(u"label_2")
 
@@ -95,6 +83,10 @@ class Ui_Form(object):
         self.label_4.setObjectName(u"label_4")
 
         self.horizontalLayout_7.addWidget(self.label_4)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_7)
@@ -151,19 +143,29 @@ class Ui_Form(object):
 
         self.horizontalLayout_8.addWidget(self.label_3)
 
-        self.lineEdit_framefate = QLineEdit(Form)
-        self.lineEdit_framefate.setObjectName(u"lineEdit_framefate")
+        self.spinBox_fps = QSpinBox(Form)
+        self.spinBox_fps.setObjectName(u"spinBox_fps")
+        self.spinBox_fps.setMinimum(1)
+        self.spinBox_fps.setMaximum(60)
+        self.spinBox_fps.setValue(25)
 
-        self.horizontalLayout_8.addWidget(self.lineEdit_framefate)
-
-        self.horizontalSpacer_6 = QSpacerItem(160, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_8.addItem(self.horizontalSpacer_6)
+        self.horizontalLayout_8.addWidget(self.spinBox_fps)
 
         self.checkBox_deleteimg = QCheckBox(Form)
         self.checkBox_deleteimg.setObjectName(u"checkBox_deleteimg")
+        self.checkBox_deleteimg.setMinimumSize(QSize(0, 0))
 
         self.horizontalLayout_8.addWidget(self.checkBox_deleteimg)
+
+        self.checkBox_deletedir = QCheckBox(Form)
+        self.checkBox_deletedir.setObjectName(u"checkBox_deletedir")
+        self.checkBox_deletedir.setEnabled(False)
+
+        self.horizontalLayout_8.addWidget(self.checkBox_deletedir)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_2)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_8)
@@ -201,14 +203,14 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"vitool", None))
         self.button_video.setText(QCoreApplication.translate("Form", u"\u89c6\u9891", None))
         self.button_output.setText(QCoreApplication.translate("Form", u"\u8f93\u51fa", None))
-        self.label.setText(QCoreApplication.translate("Form", u"\u56fe\u7247\u540e\u7f00", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"\u6bcf", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"\u5e27\u62bd\u53d61\u5e27", None))
         self.button_2img.setText(QCoreApplication.translate("Form", u"\u62bd\u5e27", None))
         self.button_img.setText(QCoreApplication.translate("Form", u"\u56fe\u7247", None))
         self.button_output_2.setText(QCoreApplication.translate("Form", u"\u8f93\u51fa", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"\u5e27\u7387", None))
-        self.checkBox_deleteimg.setText(QCoreApplication.translate("Form", u"\u5408\u5e76\u540e\u5220\u9664\u56fe\u7247", None))
+        self.checkBox_deleteimg.setText(QCoreApplication.translate("Form", u"\u5408\u5e76\u540e\u5220\u9664\u6587\u4ef6", None))
+        self.checkBox_deletedir.setText(QCoreApplication.translate("Form", u"\u5408\u5e76\u540e\u5220\u9664\u76ee\u5f55", None))
         self.button_2video.setText(QCoreApplication.translate("Form", u"\u5408\u5e76", None))
         self.progresstext.setText("")
     # retranslateUi
