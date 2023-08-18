@@ -8,6 +8,9 @@ class MyWindow(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)  # 读入 UI 界面
+        self.bind()  # 绑定信号与槽
+
+    def bind(self):
         self.button_video.clicked.connect(self.readVideo)  # 读入视频路径
         self.button_output.clicked.connect(self.outputdir_1)  # 选择视频抽帧后的输出文件夹
         self.button_img.clicked.connect(self.readImg)  # 选择图片文件夹路径
