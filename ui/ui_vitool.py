@@ -29,8 +29,8 @@ class Ui_Form(object):
         Form.setMaximumSize(QSize(474, 246))
         self.verticalLayout_3 = QVBoxLayout(Form)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout_3 = QHBoxLayout()
@@ -66,41 +66,64 @@ class Ui_Form(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
-        self.horizontalLayout_7 = QHBoxLayout()
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.label = QLabel(Form)
+        self.label.setObjectName(u"label")
+
+        self.horizontalLayout_5.addWidget(self.label)
+
+        self.lineEdit_ImgPrefix = QLineEdit(Form)
+        self.lineEdit_ImgPrefix.setObjectName(u"lineEdit_ImgPrefix")
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEdit_ImgPrefix.sizePolicy().hasHeightForWidth())
+        self.lineEdit_ImgPrefix.setSizePolicy(sizePolicy)
+        self.lineEdit_ImgPrefix.setMaximumSize(QSize(16777215, 16777215))
+
+        self.horizontalLayout_5.addWidget(self.lineEdit_ImgPrefix)
+
+        self.label_5 = QLabel(Form)
+        self.label_5.setObjectName(u"label_5")
+
+        self.horizontalLayout_5.addWidget(self.label_5)
+
+        self.spinBox_SuffixLength = QSpinBox(Form)
+        self.spinBox_SuffixLength.setObjectName(u"spinBox_SuffixLength")
+        self.spinBox_SuffixLength.setValue(6)
+
+        self.horizontalLayout_5.addWidget(self.spinBox_SuffixLength)
+
         self.label_2 = QLabel(Form)
         self.label_2.setObjectName(u"label_2")
 
-        self.horizontalLayout_7.addWidget(self.label_2)
+        self.horizontalLayout_5.addWidget(self.label_2)
 
         self.spinBox_frame = QSpinBox(Form)
         self.spinBox_frame.setObjectName(u"spinBox_frame")
         self.spinBox_frame.setMinimum(1)
 
-        self.horizontalLayout_7.addWidget(self.spinBox_frame)
+        self.horizontalLayout_5.addWidget(self.spinBox_frame)
 
         self.label_4 = QLabel(Form)
         self.label_4.setObjectName(u"label_4")
 
-        self.horizontalLayout_7.addWidget(self.label_4)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_7.addItem(self.horizontalSpacer)
+        self.horizontalLayout_5.addWidget(self.label_4)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_7)
+        self.verticalLayout.addLayout(self.horizontalLayout_5)
 
 
-        self.horizontalLayout_5.addLayout(self.verticalLayout)
+        self.horizontalLayout_7.addLayout(self.verticalLayout)
 
         self.button_2img = QPushButton(Form)
         self.button_2img.setObjectName(u"button_2img")
 
-        self.horizontalLayout_5.addWidget(self.button_2img)
+        self.horizontalLayout_7.addWidget(self.button_2img)
 
 
-        self.verticalLayout_3.addLayout(self.horizontalLayout_5)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_7)
 
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
@@ -203,7 +226,10 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"vitool", None))
         self.button_video.setText(QCoreApplication.translate("Form", u"\u89c6\u9891", None))
         self.button_output.setText(QCoreApplication.translate("Form", u"\u8f93\u51fa", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"\u6bcf", None))
+        self.label.setText(QCoreApplication.translate("Form", u"\u56fe\u7247\u524d\u7f00:", None))
+        self.lineEdit_ImgPrefix.setText(QCoreApplication.translate("Form", u"frame", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u", \u540e\u7f00\u957f\u5ea6", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u", \u6bcf", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"\u5e27\u62bd\u53d61\u5e27", None))
         self.button_2img.setText(QCoreApplication.translate("Form", u"\u62bd\u5e27", None))
         self.button_img.setText(QCoreApplication.translate("Form", u"\u56fe\u7247", None))

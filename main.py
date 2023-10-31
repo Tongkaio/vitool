@@ -65,6 +65,7 @@ class MyWindow(QWidget, Ui_Form):
     def video2img(self):
         self.progressBar.reset()  # 进度条重置为0
         self.cap = cv2.VideoCapture(self.videopath)  # 打开视频文件
+        suffixLength = max(self.spinBox_SuffixLength.value(), len(str(self.frames_num)))  # 后缀位数取决于用户设置的值和frames_num中较大的那个
         if self.cap.isOpened():  # 如果视频已打开
             frame = self.spinBox_frame.value()
             img_num = int(self.frames_num / frame) - 1  # 拆分视频成图片数目为
@@ -79,16 +80,23 @@ class MyWindow(QWidget, Ui_Form):
 
                 if cnt % frame == 0:
                     count += 1
-                    try:  # 缩减画面尺寸
-                        frame2 = cv2.resize(frame2, dsize=(960, 540),
-                                            interpolation=cv2.INTER_AREA)
-                    except:
-                        print('此帧异常，也许为空')
-                        continue
-                    # 图片的后缀是_0001.jpg这种形式其中0001的位数由self.frames_num，即视频有多少帧
+                    # try:  # 缩减画面尺寸
+                    #     frame2 = cv2.resize(frame2, dsize=(640, 512),
+                    #                         interpolation=cv2.INTER_AREA)
+                    # except:
+                    #     print('此帧异常，也许为空')
+                    #     continue
+
+                    # 图片的后缀是_0001.jpg这种形式其中0001的位数由suffixLength，即视频有多少帧
                     # 如果视频有123张图片，那么后缀长度就是3
-                    pic_path = os.path.join(self.outputpath_1, self.videoname
-                                            + '_' + str(cnt).zfill(len(str(self.frames_num))) + expand_name)
+
+                    pic_path = ''
+                    if (self.lineEdit_ImgPrefix.text()):
+                        pic_path = os.path.join(self.outputpath_1, self.lineEdit_ImgPrefix.text()
+                                                + '_' + str(cnt).zfill(suffixLength) + expand_name)
+                    else:
+                        pic_path = os.path.join(self.outputpath_1, self.videoname
+                                                + '_' + str(cnt).zfill(suffixLength) + expand_name)
                     cv2.imwrite(pic_path, frame2, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
                     # 显示进度条
                     self.progressBar.setValue(int(count/img_num*100.0))
